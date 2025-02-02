@@ -1,13 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const FlutterNoteApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// アプリケーションのルート
+// statelesswidgetは状態を持たない
+class FlutterNoteApp extends StatelessWidget {
+  const FlutterNoteApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -15,10 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
+        brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 252, 255, 178)),
+          seedColor: const Color.fromARGB(255, 220, 237, 222),
+          brightness: Brightness.light,
+        ).copyWith(
+          surface: const Color.fromARGB(255, 245, 250, 246),
+        ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 245, 250, 246),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Color.fromARGB(255, 51, 51, 51)),
+        ),
       ),
-      home: const MyHomePage(title: 'Custom 1'),
+      home: const MyHomePage(title: 'Notes'),
     );
   }
 }
