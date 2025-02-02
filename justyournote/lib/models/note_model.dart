@@ -1,5 +1,6 @@
 // 메모 데이터 모델 클래스
 // Note data model class
+// ノートのデータモデルクラス
 class Note {
   String title;
   String content;

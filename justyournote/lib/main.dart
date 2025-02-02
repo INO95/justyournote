@@ -1,5 +1,6 @@
 // 메인 애플리케이션 설정
 // Application main configuration
+// 古いノートブックを連想させるビンテージテーマを適用します。
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
