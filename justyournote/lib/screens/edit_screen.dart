@@ -1,29 +1,6 @@
-// 메인 애플리케이션 설정
-// Application main configuration
+// 메모 편집 화면
+// Note editing screen
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'theme/app_theme.dart';
-
-void main() {
-  runApp(const FlutterNoteApp());
-}
-
-// アプリケーションのルート
-// statelesswidgetは状態を持たない
-class FlutterNoteApp extends StatelessWidget {
-  const FlutterNoteApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Old Notebook',
-      theme: AppTheme.vintageTheme, // 테마 설정 분리
-      home: const HomeScreen(title: 'My Vintage Notes'),
-      debugShowCheckedModeBanner: false, // Remove debug banner
-    );
-  }
-}
 
 class EditScreen extends StatelessWidget {
   final String initialContent;
@@ -40,9 +17,7 @@ class EditScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.save),
-            onPressed: () {
-              Navigator.pop(context, _controller.text);
-            },
+            onPressed: () => Navigator.pop(context, _controller.text),
           ),
         ],
       ),
@@ -57,7 +32,6 @@ class EditScreen extends StatelessWidget {
             hintText: '메모 내용을 입력하세요...',
             border: InputBorder.none,
           ),
-          style: const TextStyle(fontSize: 18),
         ),
       ),
     );
