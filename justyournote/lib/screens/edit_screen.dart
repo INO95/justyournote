@@ -1,6 +1,4 @@
 // 메모 편집 화면
-// Note editing screen
-// ノート編集画面
 import 'package:flutter/material.dart';
 
 class EditScreen extends StatefulWidget {
@@ -15,22 +13,26 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   late TextEditingController _controller;
 
+  // initState는 위젯이 초기화될 때 호출되는 메서드이다.
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.initialContent);
   }
 
+  // dispose는 위젯이 사라질 때 호출되는 메서드이다.
   @override
   void dispose() {
+    // 텍스트 입력 컨트롤러를 해제한다.
     _controller.dispose();
+    // 부모 클래스의 dispose 메서드를 호출한다.
     super.dispose();
   }
 
   // 메모 저장 로직
-  // Save note logic
-  // ノート保存ロジック
   void _saveNote() {
+    // 텍스트 입력 컨트롤러의 텍스트를 가져와서 메모를 저장한다.
+    // 현재 화면의 context(현재 화면의 key)를 파라미터로 사용하여 스택에서 현재 화면을 제거하고 이전 화면으로 돌아간다.
     Navigator.pop(context, _controller.text);
   }
 
